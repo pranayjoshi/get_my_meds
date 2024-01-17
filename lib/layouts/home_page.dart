@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_my_meds/widgets/chart.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -8,7 +9,10 @@ class HomePage extends StatelessWidget {
         title: Text('Home'),
       ),
       body: Center(
-        child: Text('Your main content goes here'),
+        child: Container(
+          child: WeeklyProgressChart.withSampleData(),
+        
+      ),
       ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
