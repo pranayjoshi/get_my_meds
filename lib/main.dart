@@ -59,23 +59,21 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Handle Scanner button press
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white, // Change this to your desired color
-          ),
-          child: IconButton(
-            icon: Icon(Icons.camera_alt),
-            onPressed: () {
-              // Handle button press
-            },
-          ),
+      floatingActionButton: Container(
+        width: 80.0, // Set the width to your desired size
+        height: 80.0, // Set the height to your desired size
+        margin: EdgeInsets.only(bottom: 10.0),
+        child: FloatingActionButton(
+          onPressed: () {
+            // Handle Scanner button press
+          },
+          child: Icon(
+            Icons.camera_alt,
+            size: 40.0,
+          ), // You may also want to increase the icon size
+          elevation: 1.0,
+          shape: CircleBorder(),
         ),
-        elevation: 2.0,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
