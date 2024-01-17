@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: double.maxFinite,
           child: WeeklyProgressChart(),
       ),
       ),

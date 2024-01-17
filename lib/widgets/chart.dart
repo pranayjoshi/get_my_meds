@@ -5,9 +5,9 @@ class WeeklyProgressChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.topCenter,
       height: MediaQuery.of(context).size.height * 0.4,
       child: Padding(
-        
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(
@@ -28,7 +28,11 @@ class WeeklyProgressChart extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'Weekly Progress',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: ColorScheme.light().primary,
+                    fontWeight: FontWeight.bold,
+                  )
                 ),
                 Expanded(
                   child: Padding(
