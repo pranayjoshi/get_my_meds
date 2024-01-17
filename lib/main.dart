@@ -18,11 +18,11 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green,
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: Colors.white,
-          ),
+          titleTextStyle: TextStyle(
+            color: Colors.green,
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,),
+          
         ),),
         home: HomePage()
       );
