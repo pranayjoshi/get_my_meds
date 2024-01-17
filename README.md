@@ -1,4 +1,4 @@
-# get_my_meds
+# Get My Meds
 
 A new Flutter project.
 
