@@ -1,28 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
+class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
-        child: Text('Your main content goes here'),
-      ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Row(
@@ -41,9 +22,7 @@ class HomePage extends StatelessWidget {
                 // Handle Search button press
               },
             ),
-            SizedBox(
-              width: 48.0,
-            ), // Empty space for the middle option
+            SizedBox(width: 48.0,), // Empty space for the middle option
             IconButton(
               icon: Icon(Icons.person),
               onPressed: () {
@@ -59,25 +38,12 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Handle Scanner button press
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white, // Change this to your desired color
-          ),
-          child: IconButton(
-            icon: Icon(Icons.camera_alt),
-            onPressed: () {
-              // Handle button press
-            },
-          ),
-        ),
-        elevation: 2.0,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: BottomNavBar(),
+  ));
 }
