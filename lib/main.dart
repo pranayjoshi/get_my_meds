@@ -17,15 +17,12 @@ class MyApp extends StatelessWidget {
           secondary: Colors.green,
         ),
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
-          toolbarTextStyle: TextTheme(
-            displaySmall: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ).bodySmall
+          backgroundColor: Colors.green,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.white,
+          ),
         ),),
         home: HomePage()
       );
