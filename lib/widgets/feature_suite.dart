@@ -13,10 +13,10 @@ class FeatureSuite extends StatelessWidget {
           mainAxisSpacing: 10.0,
           crossAxisSpacing: 10.0,
           children: <Widget>[
-            _createGridItem('Box 1', Colors.lightBlue[400]!, context),
+            _createGridItem('Box 1', Colors.lightGreen[400]!, context),
             _createGridItem('Box 2', Colors.lightGreen[400]!, context),
-            _createGridItem('Box 3', Colors.pink[400]!, context),
-            _createGridItem('Box 4', Colors.yellow[400]!, context),
+            _createGridItem('Box 3', Colors.lightGreen[400]!, context),
+            _createGridItem('Box 4', Colors.lightGreen[400]!, context),
           ],
         ),
       ),
