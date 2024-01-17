@@ -31,46 +31,36 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.home),
-              onPressed: () {
-                // Handle Home button press
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(Icons.search),
-              onPressed: () {
-                // Handle Search button press
-              },
+              onPressed: () {},
             ),
             SizedBox(
               width: 48.0,
-            ), // Empty space for the middle option
+            ),
             IconButton(
               icon: Icon(Icons.person),
-              onPressed: () {
-                // Handle Person button press
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(Icons.settings),
-              onPressed: () {
-                // Handle Settings button press
-              },
+              onPressed: () {},
             ),
           ],
         ),
       ),
       floatingActionButton: Container(
-        width: 80.0, // Set the width to your desired size
-        height: 80.0, // Set the height to your desired size
+        width: 80.0,
+        height: 80.0,
         margin: EdgeInsets.only(bottom: 10.0),
         child: FloatingActionButton(
-          onPressed: () {
-            // Handle Scanner button press
-          },
+          onPressed: () {},
           child: Icon(
             Icons.camera_alt,
             size: 40.0,
-          ), // You may also want to increase the icon size
+          ),
           elevation: 1.0,
           shape: CircleBorder(),
         ),
