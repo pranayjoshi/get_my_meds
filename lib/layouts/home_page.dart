@@ -11,7 +11,6 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(
           child: WeeklyProgressChart.withSampleData(),
-        
       ),
       ),
       bottomNavigationBar: BottomAppBar(
