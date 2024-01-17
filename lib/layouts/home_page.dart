@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_my_meds/widgets/chart.dart';
+import 'package:get_my_meds/widgets/feature_suite.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -11,7 +12,12 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(
         alignment: Alignment.topCenter,
-          child: WeeklyProgressChart(),
+        child: Column(
+          children: [
+            WeeklyProgressChart(),
+            FeatureSuite(),
+          ],
+        ),
       ),
       ),
       bottomNavigationBar: BottomAppBar(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyGrid extends StatelessWidget {
+class FeatureSuite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
