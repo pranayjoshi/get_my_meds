@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get_my_meds/widgets/chart.dart';
 import 'package:get_my_meds/widgets/feature_suite.dart';
+import 'package:camera/camera.dart';
+
+
 
 class HomePage extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
