@@ -66,20 +66,41 @@ class HomePage extends StatelessWidget {
   margin: EdgeInsets.only(bottom: 10.0),
   child: FloatingActionButton(
     onPressed: () async {
-      final CameraController controller = CameraController(
-        cameras[0],
-        ResolutionPreset.medium,
-      );
-      await controller.initialize();
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => TakePictureScreen(
-            camera: cameras[0],
-          ),
+  if (cameras.isNotEmpty) {
+    final CameraController controller = CameraController(
+      cameras[0],
+      ResolutionPreset.medium,
+    );
+    await controller.initialize();
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TakePictureScreen(
+          camera: cameras[0],
         ),
-      );
-    },
+      ),
+    );
+  } else {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('No camera found'),
+          content: Text('This device does not have a camera.'),
+          actions: <Widget>[
+
+            TextButton(
+              child: Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+},
     child: Icon(
       Icons.camera_alt,
       size: 40.0,
