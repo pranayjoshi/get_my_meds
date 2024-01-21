@@ -14,7 +14,7 @@ class FeatureSuite extends StatelessWidget {
           crossAxisSpacing: 10.0,
           children: <Widget>[
             _createGridItem('Reminders', Colors.lightGreen[400]!, Icons.alarm, context),
-  _createGridItem('Medicine Scanner', Colors.lightGreen[400]!, Icons.camera_alt, context),
+  _createGridItem('Drug Recognizer', Colors.lightGreen[400]!, Icons.camera_alt, context),
   _createGridItem('Drug Interations', Colors.lightGreen[400]!, Icons.warning, context),
   _createGridItem('Drug Wiki', Colors.lightGreen[400]!, Icons.book, context),
           ],
