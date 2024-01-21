@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get_my_meds/layouts/take_picture_screen.dart';
 import 'package:get_my_meds/widgets/chart.dart';
 import 'package:get_my_meds/widgets/feature_suite.dart';
 import 'package:camera/camera.dart';
 
+import 'package:camera/camera.dart';
 
+List<CameraDescription> cameras  = [];
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
+}
 
 class HomePage extends StatelessWidget {
   
@@ -53,20 +61,34 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: Container(
-        width: 80.0,
-        height: 80.0,
-        margin: EdgeInsets.only(bottom: 10.0),
-        child: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(
-            Icons.camera_alt,
-            size: 40.0,
+  width: 80.0,
+  height: 80.0,
+  margin: EdgeInsets.only(bottom: 10.0),
+  child: FloatingActionButton(
+    onPressed: () async {
+      final CameraController controller = CameraController(
+        cameras[0],
+        ResolutionPreset.medium,
+      );
+      await controller.initialize();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TakePictureScreen(
+            camera: cameras[0],
           ),
-          elevation: 1.0,
-          shape: CircleBorder(),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      );
+    },
+    child: Icon(
+      Icons.camera_alt,
+      size: 40.0,
+    ),
+    elevation: 1.0,
+    shape: CircleBorder(),
+  ),
+),
+floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
