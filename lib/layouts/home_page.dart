@@ -8,25 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:camera/camera.dart';
 
-List<CameraDescription> cameras = [];
+// List<CameraDescription> cameras = [];
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
 
-  var status = await Permission.camera.status;
-  if (!status.isGranted) {
-    status = await Permission.camera.request();
-    if (!status.isGranted) {
-      // Handle the case where the user did not grant the permission
-      return;
-    }
-  }
-
-  cameras = await availableCameras();
-  
-}
 
 class HomePage extends StatelessWidget {
+  final List<CameraDescription> cameras;
+
+  HomePage({required this.cameras});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,40 +81,13 @@ class HomePage extends StatelessWidget {
         height: 80.0,
         margin: EdgeInsets.only(bottom: 10.0),
         child: FloatingActionButton(
-          onPressed: () async {
-            if (cameras.isNotEmpty) {
-              final CameraController controller = CameraController(
-                cameras.first,
-                ResolutionPreset.medium,
-              );
-              await controller.initialize();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TakePictureScreen(
-                    camera: cameras.first,
-                  ),
-                ),
-              );
-            } else {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: Text('No camera found'),
-                    content: Text('This device does not have a camera.'),
-                    actions: <Widget>[
-                      TextButton(
-                        child: Text('Close'),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    ],
-                  );
-                },
-              );
-            }
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TakePictureScreen(camera: cameras.first,),
+              ),
+            );
           },
           child: Icon(
             Icons.camera_alt,

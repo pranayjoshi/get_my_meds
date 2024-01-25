@@ -5,7 +5,18 @@ import 'package:permission_handler/permission_handler.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  var status = await Permission.camera.status;
+  if (!status.isGranted) {
+    status = await Permission.camera.request();
+    if (!status.isGranted) {
+      // Handle the case where the user did not grant the permission
+      return;
+    }
+  }
+  final cameras = await availableCameras();
   runApp(MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +38,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,),
           
         ),),
-        home: HomePage()
+        home: HomePage(cameras: cameras,)
       );
       
   }
