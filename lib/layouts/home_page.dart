@@ -23,6 +23,7 @@ void main() async {
   }
 
   cameras = await availableCameras();
+  
 }
 
 class HomePage extends StatelessWidget {
@@ -94,7 +95,7 @@ class HomePage extends StatelessWidget {
           onPressed: () async {
             if (cameras.isNotEmpty) {
               final CameraController controller = CameraController(
-                cameras[0],
+                cameras.first,
                 ResolutionPreset.medium,
               );
               await controller.initialize();
@@ -102,7 +103,7 @@ class HomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => TakePictureScreen(
-                    camera: cameras[0],
+                    camera: cameras.first,
                   ),
                 ),
               );
