@@ -48,12 +48,21 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.camera),
+        child: Icon(Icons.camera_alt),
         onPressed: () async {
           try {
             await _initializeControllerFuture;
+
             final image = await _controller.takePicture();
-            // You can then display the new picture using a new screen.
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DisplayPictureScreen(
+                  imagePath: image.path,
+                ),
+              ),
+            );
           } catch (e) {
             print(e);
           }
