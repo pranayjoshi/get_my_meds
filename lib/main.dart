@@ -15,11 +15,14 @@ void main() async {
     }
   }
   final cameras = await availableCameras();
-  runApp(MyApp());
-  
+  runApp(MyApp(cameras: cameras));
 }
 
 class MyApp extends StatelessWidget {
+  final List<CameraDescription> cameras;
+
+  MyApp({required this.cameras});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,12 +38,11 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(
             color: Colors.green,
             fontSize: 20.0,
-            fontWeight: FontWeight.bold,),
-          
-        ),),
-        home: HomePage(cameras: cameras,)
-      );
-      
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      home: HomePage(cameras: cameras),
+    );
   }
 }
-
