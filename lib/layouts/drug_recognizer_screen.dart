@@ -12,11 +12,11 @@ class DrugRecognizerScreen extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Image.network(
-              'https://link-to-ibuprofen-image.com', // Replace with the actual link to the image
+              'https://www.kroger.com/product/images/large/front/0001111079990', // Replace with the actual link to the image
               fit: BoxFit.cover,
             ),
           ),
-          Expanded(
+          const Expanded(
             flex: 3,
             child: SingleChildScrollView(
               padding: EdgeInsets.all(16.0),
