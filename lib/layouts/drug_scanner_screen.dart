@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:get_my_meds/layouts/drug_recognizer_screen.dart';
 import 'package:get_my_meds/layouts/reminder_screen.dart';
 
 class DrugScannerScreen extends StatefulWidget {
@@ -81,7 +82,7 @@ class _DrugScannerScreenState extends State<DrugScannerScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ReminderScreen(),
+              builder: (context) => DrugRecognizerScreen(),
             ),
           );
         });
