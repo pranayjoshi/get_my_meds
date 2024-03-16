@@ -44,38 +44,49 @@ class _TakePictureScreenState extends State<TakePictureScreen> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-  try {
-    final image = await _controller.takePicture();
-
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return Dialog(
-            child: new Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                new CircularProgressIndicator(),
-                new Text("Scanning..."),
-              ],
-            ),
-          );
+      floatingActionButton: Container(
+        margin: EdgeInsets.all(16.0),
+        height: 70,
+        width: 70,
+        child: FloatingActionButton(
+        shape: CircleBorder(),
+          onPressed: () async {
+          try {
+            final image = await _controller.takePicture();
+        
+            WidgetsBinding.instance?.addPostFrameCallback((_) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return Dialog(
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: new Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    new CircularProgressIndicator(),
+                    SizedBox(width: 10),
+                    new Text("Scanning..."),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+        
+        Future.delayed(Duration(seconds: 2), () {
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+        });
+            });
+        
+          } catch (e) {
+            print(e);
+          }
         },
-      );
-
-      Future.delayed(Duration(seconds: 2), () {
-        Navigator.of(context).pop();
-      });
-    });
-
-  } catch (e) {
-    print(e);
-  }
-},
-        child: const Icon(Icons.camera_alt),
+          child: const Icon(Icons.camera_alt, size: 40,),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

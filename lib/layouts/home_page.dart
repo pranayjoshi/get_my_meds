@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => TakePictureScreen(camera: cameras.first,),
+                builder: (context) => TakePictureScreen(cameras: cameras,),
               ),
             );
           },
