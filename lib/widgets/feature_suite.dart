@@ -13,7 +13,7 @@ class FeatureSuite extends StatelessWidget {
           mainAxisSpacing: 10.0,
           crossAxisSpacing: 10.0,
           children: <Widget>[
-            _createGridItem('Reminders', Colors.lightGreen[400]!, Icons.alarm, context),
+            _createGridItem('Reminders', Colors.lightGreen[400]!, Icons.alarm, context, ),
   _createGridItem('Drug Recognizer', Colors.lightGreen[400]!, Icons.camera_alt, context),
   _createGridItem('Drug Interations', Colors.lightGreen[400]!, Icons.warning, context),
   _createGridItem('Drug Wiki', Colors.lightGreen[400]!, Icons.book, context),
@@ -24,26 +24,46 @@ class FeatureSuite extends StatelessWidget {
   }
 
 Widget _createGridItem(String title, Color color, IconData iconData, BuildContext context) {
-  return Container(
-    height: MediaQuery.of(context).size.height * 0.01,
-    decoration: BoxDecoration(
-      color: color,
-      borderRadius: BorderRadius.circular(10),
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Icon(
-          iconData,
-          color: Colors.white,
-          size: 30.0,
-        ),
-        Text(
-          title,
-          style: TextStyle(color: Colors.white, fontSize: 20),
-        ),
-      ],
+  return GestureDetector(
+    onTap: () {
+      switch (title) {
+        case 'Reminders':
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Screen1()),
+          );
+          break;
+        case 'Screen2':
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Screen2()),
+          );
+          break;
+        // Add more cases for other screens
+        default:
+          break;
+      }
+    },
+    child: Container(
+      height: MediaQuery.of(context).size.height * 0.01,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            iconData,
+            color: Colors.white,
+            size: 30.0,
+          ),
+          Text(
+            title,
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ],
+      ),
     ),
   );
-}
 }
