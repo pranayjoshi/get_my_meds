@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get_my_meds/layouts/drug_interactions_screen.dart';
+import 'package:get_my_meds/layouts/drug_scanner_screen.dart';
 import 'package:get_my_meds/layouts/manage_watchers_screen.dart';
 import 'package:get_my_meds/layouts/reminder_screen.dart';
 
@@ -56,7 +57,7 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
         case 'Drug Recognizer':
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ManageWatchersScreen()),
+            MaterialPageRoute(builder: (context) => DrugScannerScreen(cameras: cameras)),
           );
           break;
         // Add more cases for other screens

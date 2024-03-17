@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:get_my_meds/layouts/reminder_screen.dart';
 
-class TakePictureScreen extends StatefulWidget {
+class DrugScannerScreen extends StatefulWidget {
   final List<CameraDescription> cameras;
 
-  TakePictureScreen({required this.cameras});
+  DrugScannerScreen({required this.cameras});
 
   @override
-  _TakePictureScreenState createState() => _TakePictureScreenState();
+  _DrugScannerScreenState createState() => _DrugScannerScreenState();
 }
 
-class _TakePictureScreenState extends State<TakePictureScreen> {
+class _DrugScannerScreenState extends State<DrugScannerScreen> {
   late CameraController _controller;
   late Future<void> _initializeControllerFuture;
 
