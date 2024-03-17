@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_my_meds/layouts/drug_interactions_screen.dart';
+import 'package:get_my_meds/layouts/manage_watchers_screen.dart';
 
 class FeatureSuite extends StatelessWidget {
   @override
@@ -34,10 +35,10 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
             MaterialPageRoute(builder: (context) => DrugInteractionsScreen()),
           );
           break;
-        case 'Screen2':
+        case 'Manage Watchers':
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DrugInteractionsScreen()),
+            MaterialPageRoute(builder: (context) => ManageWatchersScreen()),
           );
           break;
         // Add more cases for other screens

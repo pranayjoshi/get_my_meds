@@ -5,7 +5,7 @@ class ManageWatchersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card Screen'),
+        title: Text('Manage Watchers'),
       ),
       body: ListView(
         children: <Widget>[
@@ -13,7 +13,7 @@ class ManageWatchersScreen extends StatelessWidget {
             Card(
               child: ListTile(
                 leading: CircleAvatar(
-                  child: Text('A'),
+                  child: Text('A$i'),
                 ),
                 title: Text('Name $i'),
                 subtitle: Text('Title $i'),
