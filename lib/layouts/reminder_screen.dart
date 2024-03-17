@@ -15,9 +15,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
       "Alarm 3": TimeOfDay(hour: 12, minute: 0),
     },
     'Evening': {},
-    'Night': {
-      "Alarm 4": TimeOfDay(hour: 20, minute: 0)
-    },
+    'Night': {"Alarm 4": TimeOfDay(hour: 20, minute: 0)},
   };
 
   @override
@@ -30,49 +28,85 @@ class _ReminderScreenState extends State<ReminderScreen> {
         itemCount: alarms.length,
         itemBuilder: (context, index) {
           String key = alarms.keys.elementAt(index);
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    key,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: alarms[key]!.length,
-                    itemBuilder: (context, index) {
-                      String alarmKey = alarms[key]!.keys.elementAt(index);
-                      
-                      return ListTile(
-                        title: Text(alarmKey),
-                        subtitle: Text(alarms[key]![alarmKey]!.format(context)),
-                        trailing: IconButton(
-                          icon: Icon(Icons.alarm),
-                          onPressed: () async {
-                            TimeOfDay? selectedTime = await showTimePicker(
-                              context: context,
-                              initialTime: alarms[key]![alarmKey]!,
-                            );
-                            if (selectedTime != null) {
-                              setState(() {
-                                alarms[key]![alarmKey] = selectedTime;
-                              });
-                            }
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                ],
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  key,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
+              ...alarms[key]!.entries.map((alarm) {
+                return Card(
+                  child: ListTile(
+                    title: Text(alarm.key),
+                    subtitle: Text(alarm.value.format(context)),
+                    trailing: IconButton(
+                      icon: Icon(Icons.alarm),
+                      onPressed: () async {
+                        TimeOfDay? selectedTime = await showTimePicker(
+                          context: context,
+                          initialTime: alarm.value,
+                        );
+                        if (selectedTime != null) {
+                          setState(() {
+                            alarms[key]![alarm.key] = selectedTime;
+                          });
+                        }
+                      },
+                    ),
+                  ),
+                );
+              }).toList(),
+            ],
           );
         },
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 48.0,
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: Container(
+        width: 80.0,
+        height: 80.0,
+        margin: EdgeInsets.only(bottom: 10.0),
+        child: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(
+            Icons.add,
+            size: 40.0,
+          ),
+          elevation: 1.0,
+          shape: CircleBorder(),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
