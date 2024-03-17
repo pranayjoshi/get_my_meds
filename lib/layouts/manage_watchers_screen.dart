@@ -38,6 +38,7 @@ class ManageWatchersScreen extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         children: cards.map((card) {
           return Card(
+            margin: EdgeInsets.all(8.0),
             child: Column(
               children: [
                 ListTile(
