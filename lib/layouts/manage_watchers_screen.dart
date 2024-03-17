@@ -30,7 +30,7 @@ class ManageWatchersScreen extends StatelessWidget {
                     itemBuilder: (context) => [
                       PopupMenuItem(
                         value: 1,
-                        child: Text("Make Admin", style: TextStyle(color: Colors.white)),
+                        child: Text("Make Admin", style: TextStyle(color: Colors.black)),
                       ),
                       PopupMenuItem(
                         value: 2,
