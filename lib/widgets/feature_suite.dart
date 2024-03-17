@@ -1,9 +1,14 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get_my_meds/layouts/drug_interactions_screen.dart';
 import 'package:get_my_meds/layouts/manage_watchers_screen.dart';
 import 'package:get_my_meds/layouts/reminder_screen.dart';
 
 class FeatureSuite extends StatelessWidget {
+  final List<CameraDescription> cameras;
+
+  FeatureSuite({required this.cameras});
+  @override
   @override
   Widget build(BuildContext context) {
     return Expanded(

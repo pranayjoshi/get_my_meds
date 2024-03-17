@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               WeeklyProgressChart(),
-              FeatureSuite(),
+              FeatureSuite(cameras: cameras,),
             ],
           ),
         ),
