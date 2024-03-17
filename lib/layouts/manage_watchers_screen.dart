@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ManageWatchersScreen extends StatelessWidget {
+  final List<Map<String, dynamic>> cards = [
+    {'avatar': 'A1', 'name': 'Shawn Owens', 'title': 'Your Device', "tags": ["Morning", "Evening"]},
+    {'avatar': 'A2', 'name': 'Michael Owens', 'title': 'Your Son', "tags": []},
+    {'avatar': 'A3', 'name': 'Rachael Owens', 'title': 'Your Daughter', "tags": []},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8,35 +14,98 @@ class ManageWatchersScreen extends StatelessWidget {
         title: Text('Manage Watchers'),
       ),
       body: ListView(
-        children: <Widget>[
-          for (int i = 0; i < 3; i++)
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: Text('A$i'),
+        children: cards.map((card) {
+          return Card(
+            child: Column(
+              children: [
+                ListTile(
+                  leading: CircleAvatar(
+                    child: Text(card['avatar']!),
+                  ),
+                  title: Text(card['name']!),
+                  subtitle: Text(card['title']!),
+                  trailing: PopupMenuButton<int>(
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: 1,
+                        child: Text("Option 1"),
+                      ),
+                      PopupMenuItem(
+                        value: 2,
+                        child: Text("Option 2"),
+                      ),
+                      PopupMenuItem(
+                        value: 3,
+                        child: Text("Option 3"),
+                      ),
+                    ],
+                  ),
                 ),
-                title: Text('Name $i'),
-                subtitle: Text('Title $i'),
-                trailing: PopupMenuButton<int>(
-                  itemBuilder: (context) => [
-                    PopupMenuItem(
-                      value: 1,
-                      child: Text("Option 1"),
-                    ),
-                    PopupMenuItem(
-                      value: 2,
-                      child: Text("Option 2"),
-                    ),
-                    PopupMenuItem(
-                      value: 3,
-                      child: Text("Option 3"),
-                    ),
+                Row(
+                  children: [
+                    TextButton(onPressed: (){}, child: Text('Edit')),
+                    Wrap(
+                  spacing: 8.0, // gap between adjacent chips
+                  runSpacing: 4.0, // gap between lines
+                  children: card['tags'].map<Widget>((tag) {
+  return Chip(
+    label: Text(tag),
+    shape: StadiumBorder(side: BorderSide(color: Colors.green)),
+  );
+}).toList(),
+                ),
                   ],
                 ),
-              ),
+                
+              ],
             ),
-        ],
+          );
+        }).toList(),
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: 48.0,
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: Container(
+        width: 80.0,
+        height: 80.0,
+        margin: EdgeInsets.only(bottom: 10.0),
+        child: FloatingActionButton(
+          onPressed: () {
+          },
+          child: Icon(
+            Icons.add,
+            size: 40.0,
+          ),
+          elevation: 1.0,
+          shape: CircleBorder(),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
