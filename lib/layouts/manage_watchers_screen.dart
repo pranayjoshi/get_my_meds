@@ -2,10 +2,30 @@ import 'package:flutter/material.dart';
 
 class ManageWatchersScreen extends StatelessWidget {
   final List<Map<String, dynamic>> cards = [
-    {'avatar': 'SO', 'name': 'Shawn Owens', 'title': 'Your Device', "tags": ["Morning", "Evening"]},
-    {'avatar': 'MO', 'name': 'Michael Owens', 'title': 'Your Son', "tags": ["Morning", "Afternoon","Night"]},
-    {'avatar': 'RO', 'name': 'Rachael Owens', 'title': 'Your Daughter', "tags": ["Morning", "Afternoon","Evening"]},
-    {'avatar': 'JO', 'name': 'Josh Owens', 'title': 'Your Grandson', "tags": ["Afternoon", "Night"]},
+    {
+      'avatar': 'SO',
+      'name': 'Shawn Owens',
+      'title': 'Your Device',
+      "tags": ["Morning", "Evening"]
+    },
+    {
+      'avatar': 'MO',
+      'name': 'Michael Owens',
+      'title': 'Your Son',
+      "tags": ["Morning", "Afternoon", "Night"]
+    },
+    {
+      'avatar': 'RO',
+      'name': 'Rachael Owens',
+      'title': 'Your Daughter',
+      "tags": ["Morning", "Afternoon", "Evening"]
+    },
+    {
+      'avatar': 'JO',
+      'name': 'Josh Owens',
+      'title': 'Your Grandson',
+      "tags": ["Afternoon", "Night"]
+    },
   ];
 
   @override
@@ -30,31 +50,34 @@ class ManageWatchersScreen extends StatelessWidget {
                     itemBuilder: (context) => [
                       PopupMenuItem(
                         value: 1,
-                        child: Text("Make Admin", style: TextStyle(color: Colors.black)),
+                        child: Text("Make Admin",
+                            style: TextStyle(color: Colors.black)),
                       ),
                       PopupMenuItem(
                         value: 2,
-                        child: Text("Remove", style: TextStyle(color: Colors.red)),
+                        child:
+                            Text("Remove", style: TextStyle(color: Colors.red)),
                       ),
                     ],
                   ),
                 ),
                 Row(
                   children: [
-                    TextButton(onPressed: (){}, child: Text('Edit')),
+                    TextButton(onPressed: () {}, child: Text('Edit')),
                     Wrap(
-                  spacing: 8.0, // gap between adjacent chips
-                  runSpacing: 2.0, // gap between lines
-                  children: card['tags'].map<Widget>((tag) {
-  return Chip(
-    label: Text(tag, style: TextStyle(color: Colors.green)),
-    shape: StadiumBorder(side: BorderSide(color: Colors.green)),
-  );
-}).toList(),
-                ),
+                      spacing: 8.0, // gap between adjacent chips
+                      runSpacing: 2.0, // gap between lines
+                      children: card['tags'].map<Widget>((tag) {
+                        return Chip(
+                          label:
+                              Text(tag, style: TextStyle(color: Colors.green)),
+                          shape: StadiumBorder(
+                              side: BorderSide(color: Colors.green)),
+                        );
+                      }).toList(),
+                    ),
                   ],
                 ),
-                
               ],
             ),
           );
@@ -93,8 +116,7 @@ class ManageWatchersScreen extends StatelessWidget {
         height: 80.0,
         margin: EdgeInsets.only(bottom: 10.0),
         child: FloatingActionButton(
-          onPressed: () {
-          },
+          onPressed: () {},
           child: Icon(
             Icons.add,
             size: 40.0,
