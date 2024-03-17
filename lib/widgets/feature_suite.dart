@@ -17,7 +17,7 @@ class FeatureSuite extends StatelessWidget {
             _createGridItem('Reminders', Colors.lightGreen[400]!, Icons.alarm, context, ),
   _createGridItem('Drug Recognizer', Colors.lightGreen[400]!, Icons.camera_alt, context),
   _createGridItem('Drug Interations', Colors.lightGreen[400]!, Icons.warning, context),
-  _createGridItem('Drug Wiki', Colors.lightGreen[400]!, Icons.book, context),
+  _createGridItem('Manage Watchers', Colors.lightGreen[400]!, Icons.people, context),
           ],
         ),
       ),
