@@ -12,11 +12,11 @@ class _ReminderScreenState extends State<ReminderScreen> {
       "Alarm 2": TimeOfDay(hour: 9, minute: 0)
     },
     'Afternoon': {
-      "Alarm 1": TimeOfDay(hour: 12, minute: 0),
+      "Alarm 3": TimeOfDay(hour: 12, minute: 0),
     },
     'Evening': {},
     'Night': {
-      "Alarm 2": TimeOfDay(hour: 20, minute: 0)
+      "Alarm 4": TimeOfDay(hour: 20, minute: 0)
     },
   };
 
@@ -46,6 +46,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
                     itemCount: alarms[key]!.length,
                     itemBuilder: (context, index) {
                       String alarmKey = alarms[key]!.keys.elementAt(index);
+                      
                       return ListTile(
                         title: Text(alarmKey),
                         subtitle: Text(alarms[key]![alarmKey]!.format(context)),
