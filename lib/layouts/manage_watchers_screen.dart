@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class ManageWatchersScreen extends StatelessWidget {
   final List<Map<String, dynamic>> cards = [
-    {'avatar': 'A1', 'name': 'Shawn Owens', 'title': 'Your Device', "tags": ["Morning", "Evening"]},
-    {'avatar': 'A2', 'name': 'Michael Owens', 'title': 'Your Son', "tags": []},
-    {'avatar': 'A3', 'name': 'Rachael Owens', 'title': 'Your Daughter', "tags": []},
+    {'avatar': 'SO', 'name': 'Shawn Owens', 'title': 'Your Device', "tags": ["Morning", "Evening"]},
+    {'avatar': 'MO', 'name': 'Michael Owens', 'title': 'Your Son', "tags": ["Morning", "Afternoon","Night"]},
+    {'avatar': 'RO', 'name': 'Rachael Owens', 'title': 'Your Daughter', "tags": ["Morning", "Afternoon","Evening"]},
+    {'avatar': 'JO', 'name': 'Josh Owens', 'title': 'Your Grandson', "tags": ["Afternoon", "Night"]},
   ];
 
   @override
@@ -14,6 +15,7 @@ class ManageWatchersScreen extends StatelessWidget {
         title: Text('Manage Watchers'),
       ),
       body: ListView(
+        padding: EdgeInsets.all(8.0),
         children: cards.map((card) {
           return Card(
             child: Column(
@@ -46,10 +48,10 @@ class ManageWatchersScreen extends StatelessWidget {
                     TextButton(onPressed: (){}, child: Text('Edit')),
                     Wrap(
                   spacing: 8.0, // gap between adjacent chips
-                  runSpacing: 4.0, // gap between lines
+                  runSpacing: 2.0, // gap between lines
                   children: card['tags'].map<Widget>((tag) {
   return Chip(
-    label: Text(tag),
+    label: Text(tag, style: TextStyle(color: Colors.green)),
     shape: StadiumBorder(side: BorderSide(color: Colors.green)),
   );
 }).toList(),
