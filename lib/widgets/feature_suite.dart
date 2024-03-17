@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_my_meds/layouts/drug_interactions_screen.dart';
 
 class FeatureSuite extends StatelessWidget {
   @override
@@ -27,10 +28,10 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
   return GestureDetector(
     onTap: () {
       switch (title) {
-        case 'Reminders':
+        case 'Drug Interations':
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Screen1()),
+            MaterialPageRoute(builder: (context) => DrugInteractionsScreen()),
           );
           break;
         case 'Screen2':
