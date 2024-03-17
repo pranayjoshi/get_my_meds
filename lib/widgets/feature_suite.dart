@@ -37,7 +37,7 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
         case 'Screen2':
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Screen2()),
+            MaterialPageRoute(builder: (context) => DrugInteractionsScreen()),
           );
           break;
         // Add more cases for other screens
@@ -67,4 +67,5 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
       ),
     ),
   );
+}
 }

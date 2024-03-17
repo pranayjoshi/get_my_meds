@@ -10,7 +10,7 @@ class DrugInteractionsScreen extends StatelessWidget {
       body: Center(
         child: Text(
           'No Drug Interactions',
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.grey),
         ),
       ),
     );
