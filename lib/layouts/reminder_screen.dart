@@ -25,6 +25,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
         title: Text('Reminder Screen'),
       ),
       body: ListView.builder(
+        padding: EdgeInsets.all(8.0),
         itemCount: alarms.length,
         itemBuilder: (context, index) {
           String key = alarms.keys.elementAt(index);
@@ -42,9 +43,9 @@ class _ReminderScreenState extends State<ReminderScreen> {
                 return Card(
                   child: ListTile(
                     title: Text(alarm.key),
-                    subtitle: Text(alarm.value.format(context)),
+                    subtitle: Text(alarm.value.format(context), style: TextStyle(fontSize: 20)),
                     trailing: IconButton(
-                      icon: Icon(Icons.alarm),
+                      icon: Icon(Icons.alarm, color: Colors.green,),
                       onPressed: () async {
                         TimeOfDay? selectedTime = await showTimePicker(
                           context: context,
