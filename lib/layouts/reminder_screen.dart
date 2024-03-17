@@ -6,11 +6,18 @@ class ReminderScreen extends StatefulWidget {
 }
 
 class _ReminderScreenState extends State<ReminderScreen> {
-  Map<String, TimeOfDay> alarms = {
-    'Morning': TimeOfDay(hour: 7, minute: 0),
-    'Afternoon': TimeOfDay(hour: 12, minute: 0),
-    'Evening': TimeOfDay(hour: 18, minute: 0),
-    'Night': TimeOfDay(hour: 22, minute: 0),
+  Map<String, Map<String, TimeOfDay>> alarms = {
+    'Morning': {
+      "Alarm 1": TimeOfDay(hour: 7, minute: 0),
+      "Alarm 2": TimeOfDay(hour: 9, minute: 0)
+    },
+    'Afternoon': {
+      "Alarm 1": TimeOfDay(hour: 12, minute: 0),
+    },
+    'Evening': {},
+    'Night': {
+      "Alarm 2": TimeOfDay(hour: 20, minute: 0)
+    },
   };
 
   @override
@@ -23,22 +30,44 @@ class _ReminderScreenState extends State<ReminderScreen> {
         itemCount: alarms.length,
         itemBuilder: (context, index) {
           String key = alarms.keys.elementAt(index);
-          return ListTile(
-            title: Text('$key Alarm'),
-            subtitle: Text(alarms[key]!.format(context)),
-            trailing: IconButton(
-              icon: Icon(Icons.alarm),
-              onPressed: () async {
-                TimeOfDay? selectedTime = await showTimePicker(
-                  context: context,
-                  initialTime: alarms[key]!,
-                );
-                if (selectedTime != null) {
-                  setState(() {
-                    alarms[key] = selectedTime;
-                  });
-                }
-              },
+          return Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    key,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: alarms[key]!.length,
+                    itemBuilder: (context, index) {
+                      String alarmKey = alarms[key]!.keys.elementAt(index);
+                      return ListTile(
+                        title: Text(alarmKey),
+                        subtitle: Text(alarms[key]![alarmKey]!.format(context)),
+                        trailing: IconButton(
+                          icon: Icon(Icons.alarm),
+                          onPressed: () async {
+                            TimeOfDay? selectedTime = await showTimePicker(
+                              context: context,
+                              initialTime: alarms[key]![alarmKey]!,
+                            );
+                            if (selectedTime != null) {
+                              setState(() {
+                                alarms[key]![alarmKey] = selectedTime;
+                              });
+                            }
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           );
         },

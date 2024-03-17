@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_my_meds/layouts/drug_interactions_screen.dart';
 import 'package:get_my_meds/layouts/manage_watchers_screen.dart';
+import 'package:get_my_meds/layouts/reminder_screen.dart';
 
 class FeatureSuite extends StatelessWidget {
   @override
@@ -36,6 +37,18 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
           );
           break;
         case 'Manage Watchers':
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ManageWatchersScreen()),
+          );
+          break;
+        case 'Reminders':
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ReminderScreen()),
+          );
+          break;
+        case 'Drug Recognizer':
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => ManageWatchersScreen()),
