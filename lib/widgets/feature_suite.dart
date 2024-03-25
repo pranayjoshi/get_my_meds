@@ -42,7 +42,7 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
             MaterialPageRoute(builder: (context) => DrugInteractionsScreen()),
           );
           break;
-        case 'Manage Watchers':
+        case 'Manage Caretakers':
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => ManageWatchersScreen()),
