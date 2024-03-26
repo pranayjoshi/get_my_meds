@@ -32,7 +32,7 @@ class ManageWatchersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Manage Watchers'),
+        title: Text('Manage Caretakers'),
       ),
       body: ListView(
         padding: EdgeInsets.all(8.0),

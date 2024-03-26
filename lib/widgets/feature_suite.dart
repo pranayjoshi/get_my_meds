@@ -25,7 +25,7 @@ class FeatureSuite extends StatelessWidget {
             _createGridItem('Reminders', Colors.lightGreen[400]!, Icons.alarm, context, ),
   _createGridItem('Drug Recognizer', Colors.lightGreen[400]!, Icons.camera_alt, context),
   _createGridItem('Drug Interations', Colors.lightGreen[400]!, Icons.warning, context),
-  _createGridItem('Manage Watchers', Colors.lightGreen[400]!, Icons.people, context),
+  _createGridItem('Manage Caretakers', Colors.lightGreen[400]!, Icons.people, context),
           ],
         ),
       ),
@@ -65,26 +65,53 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
           break;
       }
     },
-    child: Container(
-      height: MediaQuery.of(context).size.height * 0.01,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(
-            iconData,
-            color: Colors.white,
-            size: 30.0,
+    child: Stack(
+      children: <Widget>[
+        Container(
+          width: 250,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(10),
           ),
-          Text(
-            title,
-            style: TextStyle(color: Colors.white, fontSize: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                iconData,
+                color: Colors.white,
+                size: 30.0,
+              ),
+              Text(
+                title,
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+        if (title == 'Drug Interations') // Only add the notification for 'Drug Interations'
+          Positioned(
+            right: 0,
+            child: Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle,
+              ),
+              constraints: BoxConstraints(
+                minWidth: 16,
+                minHeight: 16,
+              ),
+              child: Text(
+                '0',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+      ],
     ),
   );
 }
