@@ -92,20 +92,20 @@ Widget _createGridItem(String title, Color color, IconData iconData, BuildContex
           Positioned(
             right: 0,
             child: Container(
-              padding: EdgeInsets.all(4),
+              margin: EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: Colors.red,
                 shape: BoxShape.circle,
               ),
               constraints: BoxConstraints(
-                minWidth: 16,
-                minHeight: 16,
+                minWidth: 24,
+                minHeight: 24,
               ),
               child: Text(
                 '0',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 12,
+                  fontSize: 16,
                 ),
                 textAlign: TextAlign.center,
               ),
