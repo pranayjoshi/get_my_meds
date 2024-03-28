@@ -8,14 +8,12 @@ class ReminderScreen extends StatefulWidget {
 class _ReminderScreenState extends State<ReminderScreen> {
   Map<String, Map<String, TimeOfDay>> alarms = {
     'Morning': {
-      "Prinvil": TimeOfDay(hour: 7, minute: 0),
-      "Coumadin": TimeOfDay(hour: 9, minute: 0)
+      "Abciximab; Zoclar": TimeOfDay(hour: 7, minute: 0),
+      "Vomilast(After food)": TimeOfDay(hour: 9, minute: 0)
     },
     'Afternoon': {
-      "Prinvil, Vicodin": TimeOfDay(hour: 12, minute: 0),
     },
-    'Evening': {},
-    'Night': {"Prinvil; Coumadin": TimeOfDay(hour: 20, minute: 0)},
+    'Night': {"Abciximab; Gestakind": TimeOfDay(hour: 18, minute: 0), "Vomilast(After Food)": TimeOfDay(hour: 20, minute: 0),},
   };
 
   @override

@@ -11,8 +11,8 @@ class DrugRecognizerScreen extends StatelessWidget {
         children: [
           Expanded(
             flex: 2,
-            child: Image.network(
-              'https://www.kroger.com/product/images/large/front/0001111079990', // Replace with the actual link to the image
+            child: Image.asset(
+              'imgs/tylenol.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -29,7 +29,7 @@ class DrugRecognizerScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Ibuprofen is a medication in the nonsteroidal anti-inflammatory drug (NSAID) class that is used for treating pain, fever, and inflammation.', // Replace with the actual description
+                    'Tylenol is a medication that is used for treating pain and fever.', // Replace with the actual description
                   ),
                   SizedBox(height: 20),
                   Text(
@@ -38,7 +38,7 @@ class DrugRecognizerScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Ibuprofen is used to relieve pain from various conditions such as headache, dental pain, menstrual cramps, muscle aches, or arthritis.', // Replace with the actual usage
+                    'Tylenol is used to relieve pain from various conditions such as headache, dental pain, menstrual cramps, muscle aches, or arthritis.', // Replace with the actual usage
                   ),
                 ],
               ),
