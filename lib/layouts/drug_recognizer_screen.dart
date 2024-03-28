@@ -12,7 +12,7 @@ class DrugRecognizerScreen extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Image.asset(
-              'imgs/tylenol.jpg',
+              'imgs/tylenol.jpeg',
               fit: BoxFit.cover,
             ),
           ),
